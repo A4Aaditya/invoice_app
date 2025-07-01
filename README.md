@@ -4,14 +4,6 @@
 
 An Open Source Invoice App
 
-## Run App
-
-```bash
-flutter run --dart-define=SUPABASE_URL=<YOUR_URL> --dart-define=ANON_KEY=<YOUR_ANON_KEY>
-```
-
-You may get `SUPABASE_URL` and `ANON_KEY` from [supabase](https://supabase.com/)
-
 ## Generate App Localization
 
 ```bash

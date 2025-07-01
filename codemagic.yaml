@@ -1,0 +1,27 @@
+workflows:
+  pr_code_quality:
+    name: PR Code Quality Checks
+    triggering:
+      events:
+        - pull_request
+      branch_patterns:
+        - pattern: "*"
+          include: true
+    environment:
+      flutter: stable
+    scripts:
+      - name: Run `flutter pub get`
+        script: flutter pub get
+
+      - name: Run Static Analysis
+        script: flutter analyze
+
+      - name: Check Code Formatting
+        script: |
+          dart format --set-exit-if-changed .
+
+      - name: Run Unit/Widget Tests
+        script: flutter test --coverage
+
+    artifacts:
+      - coverage/lcov.info

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:invoice_app/app.dart';
+import 'package:invoice_app/pages/dashboard_screen.dart';
 import 'package:invoice_app/pages/splash_screen.dart';
 
 void main() {

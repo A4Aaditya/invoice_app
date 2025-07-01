@@ -1,16 +1,31 @@
-# invoice_app
+# Invoice App
 
-A new Flutter project.
+An Open Source Invoice App
 
-## Getting Started
+## Generate App Localization
 
-This project is a starting point for a Flutter application.
+```bash
+flutter gen-l10n
+```
 
-A few resources to get you started if this is your first Flutter project:
+## Unit Test
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```bash
+flutter test
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Generate Code Coverage
+
+```bash
+flutter test --coverage
+genhtml coverage/lcov.info -o coverage/html
+```
+
+## Flutter Doctor summary
+
+```bash
+Doctor summary (to see all details, run flutter doctor -v):
+[✓] Flutter (Channel stable, 3.32.5, on macOS 15.5 24F74 darwin-arm64, locale en-IN)
+[✓] Android toolchain - develop for Android devices (Android SDK version 34.0.0)
+[✓] Xcode - develop for iOS and macOS (Xcode 16.0)
+```

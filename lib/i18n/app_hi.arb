@@ -1,0 +1,6 @@
+{
+  "appName": "Khata App",
+  "@appName": {
+    "description": "This is shown in Splash Screen"
+  }
+}

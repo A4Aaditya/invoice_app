@@ -5,12 +5,12 @@ import 'package:invoice_app/pages/splash_screen.dart';
 
 void main() {
   testWidgets('Render Material App', (WidgetTester tester) async {
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(const MyApp());
     expect(find.byType(MaterialApp), findsOneWidget);
   });
 
   testWidgets('Render Splash Screen', (WidgetTester tester) async {
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(const MyApp());
     expect(find.byType(SplashScreen), findsOneWidget);
   });
 }

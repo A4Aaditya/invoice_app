@@ -5,7 +5,7 @@ import 'package:invoice_app/pages/splash_screen.dart';
 
 void main() {
   Widget renderScreen() {
-    return MaterialApp(
+    return const MaterialApp(
       home: SplashScreen(),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       locale: Locale('en'),

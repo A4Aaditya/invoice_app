@@ -5,12 +5,11 @@ import 'package:invoice_app/pages/splash_screen.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key, required this.client});
+  const MyApp({super.key});
 
-  final SupabaseClient client;
   @override
   Widget build(BuildContext context) {
-    final currentUser = client.auth.currentUser;
+    final currentUser = Supabase.instance.client.auth.currentUser;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: currentUser == null

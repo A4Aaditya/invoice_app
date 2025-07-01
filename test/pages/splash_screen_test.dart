@@ -14,21 +14,16 @@ void main() {
 
   testWidgets('Render Splash Screen', (WidgetTester tester) async {
     await tester.pumpWidget(renderScreen());
-    await tester.pump(const Duration(seconds: 4));
     expect(find.byType(SplashScreen), findsOneWidget);
   });
   testWidgets('Render Scaffold', (WidgetTester tester) async {
     await tester.pumpWidget(renderScreen());
-    await tester.pump(const Duration(seconds: 4));
     expect(find.byType(Scaffold), findsOneWidget);
   });
   testWidgets('Render Text', (WidgetTester tester) async {
     final delegate = AppLocalizations.delegate;
     final localizations = await delegate.load(const Locale('en'));
-
     await tester.pumpWidget(renderScreen());
-    await tester.pump(const Duration(seconds: 4));
-
     expect(find.byType(Text), findsOneWidget);
     expect(find.text(localizations.appName), findsOneWidget);
   });
@@ -36,18 +31,13 @@ void main() {
   testWidgets('Render Text', (WidgetTester tester) async {
     final delegate = AppLocalizations.delegate;
     final localizations = await delegate.load(const Locale('en'));
-
     await tester.pumpWidget(renderScreen());
-    await tester.pump(const Duration(seconds: 4));
-
     expect(find.byType(Text), findsOneWidget);
     expect(find.text(localizations.appName), findsOneWidget);
   });
 
   testWidgets('Should not contain any Button', (WidgetTester tester) async {
     await tester.pumpWidget(renderScreen());
-    await tester.pump(const Duration(seconds: 4));
-
     expect(find.byType(ElevatedButton), findsNothing);
   });
 }

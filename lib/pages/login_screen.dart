@@ -50,8 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
       if (!mounted) return;
       SnackbarHelper.showError(context, e.message);
     } catch (e) {
-      if (!mounted) return;
-      SnackbarHelper.showError(context, e.toString());
+      print("on catch error ${e.toString()}");
     }
   }
 }

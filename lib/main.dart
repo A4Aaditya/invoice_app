@@ -5,8 +5,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setupSupabase();
-  final client = Supabase.instance.client;
-  runApp(MyApp(client: client));
+  runApp(const MyApp());
 }
 
 Future<void> setupSupabase() async {

@@ -1,5 +1,7 @@
 # Invoice App
 
+[![Codemagic build status](https://api.codemagic.io/apps/6864253ef2b608e1bd8d9e29/6864253ef2b608e1bd8d9e28/status_badge.svg)](https://codemagic.io/app/6864253ef2b608e1bd8d9e29/6864253ef2b608e1bd8d9e28/latest_build)
+
 An Open Source Invoice App
 
 ## Generate App Localization

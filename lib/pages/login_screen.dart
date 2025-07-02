@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:invoice_app/entities/auth_params/login_params.dart';
 import 'package:invoice_app/pages/dashboard_screen.dart';
 import 'package:invoice_app/service/auth_service.dart';
 import 'package:invoice_app/utils/snackbar.dart';
@@ -33,11 +34,8 @@ class _LoginScreenState extends State<LoginScreen> {
   Future<void> onSiginTap() async {
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
-
-    final response = await AuthService().signinWithPassword(
-      password: password,
-      email: email,
-    );
+    final loginParams = LoginParams(password: password, email: email);
+    final response = await AuthService().signinWithPassword(loginParams);
     if (response.user != null && response.session != null) {
       final route = MaterialPageRoute(
         builder: (context) => const DashboardScreen(),

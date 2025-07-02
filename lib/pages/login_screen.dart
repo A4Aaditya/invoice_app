@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:invoice_app/entities/auth_params/login_params.dart';
 import 'package:invoice_app/pages/dashboard_screen.dart';
 import 'package:invoice_app/service/auth_service.dart';
@@ -35,7 +36,8 @@ class _LoginScreenState extends State<LoginScreen> {
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
     final loginParams = LoginParams(password: password, email: email);
-    final response = await AuthService().signinWithPassword(loginParams);
+    final authService = GetIt.instance.get<AuthService>();
+    final response = await authService.signinWithPassword(loginParams);
     if (response.user != null && response.session != null) {
       final route = MaterialPageRoute(
         builder: (context) => const DashboardScreen(),

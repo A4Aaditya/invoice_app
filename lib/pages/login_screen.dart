@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:invoice_app/entities/auth_params/login_params.dart';
+import 'package:invoice_app/model/service_response.dart';
 import 'package:invoice_app/pages/dashboard_screen.dart';
 import 'package:invoice_app/pages/register_screen.dart';
 import 'package:invoice_app/service/auth_service.dart';
 import 'package:invoice_app/utils/snackbar.dart';
 import 'package:invoice_app/widgets/button.dart';
 import 'package:invoice_app/widgets/input_field.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -52,15 +54,16 @@ class _LoginScreenState extends State<LoginScreen> {
     final loginParams = LoginParams(password: password, email: email);
     final authService = GetIt.instance.get<AuthService>();
     final response = await authService.signinWithPassword(loginParams);
-    if (response.user != null && response.session != null) {
-      final route = MaterialPageRoute(
-        builder: (context) => const DashboardScreen(),
-      );
-      if (!mounted) return;
-      Navigator.pushReplacement(context, route);
-    } else {
-      if (!mounted) return;
-      SnackbarHelper.showError(context, response.message);
+    if (!mounted) return;
+    switch (response) {
+      case SucessResult<User, String>():
+        final route = MaterialPageRoute(
+          builder: (context) => const DashboardScreen(),
+        );
+
+        Navigator.pushReplacement(context, route);
+      case FailureResult<User, String>(:final error):
+        SnackbarHelper.showError(context, error);
     }
   }
 }

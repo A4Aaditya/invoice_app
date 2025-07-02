@@ -1,4 +1,3 @@
-import 'package:get_it/get_it.dart';
 import 'package:invoice_app/entities/auth_params/login_params.dart';
 import 'package:invoice_app/entities/auth_params/no_params.dart';
 import 'package:invoice_app/entities/auth_params/register_params.dart';
@@ -6,7 +5,8 @@ import 'package:invoice_app/model/auth_service_response.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class AuthService {
-  final supabaseClient = GetIt.instance.get<SupabaseClient>();
+  final SupabaseClient supabaseClient;
+  AuthService({required this.supabaseClient});
 
   Future<AuthServiceResponse> signinWithPassword(
     LoginParams loginParams,

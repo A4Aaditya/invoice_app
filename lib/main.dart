@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:invoice_app/app.dart';
+import 'package:invoice_app/utils/service_locator.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setupSupabase();
-  final client = Supabase.instance.client;
-  runApp(MyApp(client: client));
+  setupLocator();
+  runApp(const MyApp());
 }
 
 Future<void> setupSupabase() async {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:invoice_app/pages/dashboard_screen.dart';
 import 'package:invoice_app/utils/snackbar.dart';
 import 'package:invoice_app/widgets/button.dart';
@@ -33,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Future<void> onSiginTap() async {
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
-    final supabaseClient = Supabase.instance.client;
+    final supabaseClient = GetIt.instance.get<SupabaseClient>();
     try {
       final response = await supabaseClient.auth.signInWithPassword(
         password: password,

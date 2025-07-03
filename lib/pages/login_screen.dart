@@ -8,6 +8,7 @@ import 'package:invoice_app/service/auth_service.dart';
 import 'package:invoice_app/utils/snackbar.dart';
 import 'package:invoice_app/widgets/button.dart';
 import 'package:invoice_app/widgets/input_field.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

@@ -1,14 +1,14 @@
-import 'package:get_it/get_it.dart';
 import 'package:invoice_app/entities/auth_params/login_params.dart';
 import 'package:invoice_app/entities/auth_params/no_params.dart';
 import 'package:invoice_app/entities/auth_params/register_params.dart';
-import 'package:invoice_app/model/auth_service_response.dart';
+import 'package:invoice_app/model/service_response.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class AuthService {
-  final supabaseClient = GetIt.instance.get<SupabaseClient>();
+  final SupabaseClient supabaseClient;
+  AuthService({required this.supabaseClient});
 
-  Future<AuthServiceResponse> signinWithPassword(
+  Future<ServiceResult<User, String>> signinWithPassword(
     LoginParams loginParams,
   ) async {
     try {
@@ -17,22 +17,19 @@ class AuthService {
         email: loginParams.email,
       );
 
-      return AuthServiceResponse(
-        session: response.session,
-        user: response.user,
-      );
+      if (response.user == null) {
+        throw Exception("User not found");
+      }
+
+      return SucessResult(response.user!);
     } on AuthException catch (e) {
-      return AuthServiceResponse(
-        message: e.message,
-        statusCode: e.statusCode,
-        code: e.code,
-      );
-    } catch (e) {
-      return AuthServiceResponse();
+      return FailureResult(e.message, exceptions: e);
+    } on Exception catch (e) {
+      return FailureResult("User not found", exceptions: e);
     }
   }
 
-  Future<AuthServiceResponse> registerEmailPassword(
+  Future<ServiceResult<User, String>> registerEmailPassword(
     RegisterParams registerParams,
   ) async {
     try {
@@ -41,18 +38,15 @@ class AuthService {
         email: registerParams.email,
       );
 
-      return AuthServiceResponse(
-        session: response.session,
-        user: response.user,
-      );
+      if (response.user == null) {
+        throw Exception("User not found");
+      }
+
+      return SucessResult(response.user!);
     } on AuthException catch (e) {
-      return AuthServiceResponse(
-        message: e.message,
-        statusCode: e.statusCode,
-        code: e.code,
-      );
-    } catch (e) {
-      return AuthServiceResponse();
+      return FailureResult(e.message, exceptions: e);
+    } on Exception catch (e) {
+      return FailureResult("User not found", exceptions: e);
     }
   }
 

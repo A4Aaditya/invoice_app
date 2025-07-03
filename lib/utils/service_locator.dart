@@ -6,6 +6,6 @@ void setupLocator() {
   final supabase = Supabase.instance.client;
   GetIt.instance.registerSingleton<SupabaseClient>(supabase);
 
-  final authService = AuthService();
+  final authService = AuthService(supabaseClient: supabase);
   GetIt.instance.registerSingleton<AuthService>(authService);
 }

@@ -58,7 +58,6 @@ void main() {
     expect(result, isA<FailureResult>());
     if (result case FailureResult<User, String>(:final error)) {
       expect(error, mockException.message);
-      print("Error");
     }
   });
 }

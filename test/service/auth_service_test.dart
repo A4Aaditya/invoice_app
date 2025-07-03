@@ -13,6 +13,8 @@ class MockUser extends Mock implements User {}
 
 class MockAuthResponse extends Mock implements AuthResponse {}
 
+class MockException extends Mock implements AuthException {}
+
 void main() {
   late final MockSupabaseClient mockSupabaseClient;
   late final AuthService authService;
@@ -42,6 +44,21 @@ void main() {
     if (result case SucessResult<User, String>(:final data)) {
       expect(data, mockuser);
       expect(data.email, "mockUser@gmail.com");
+    }
+  });
+
+  test("When register method throw exception", () async {
+    final params = RegisterParams(email: "", password: "password");
+    final mockException = MockException();
+    when(
+      () => mockAuth.signUp(password: params.password, email: params.email),
+    ).thenThrow((_) => mockException);
+    final result = await authService.registerEmailPassword(params);
+
+    expect(result, isA<FailureResult>());
+    if (result case FailureResult<User, String>(:final error)) {
+      expect(error, mockException.message);
+      print("Error");
     }
   });
 }

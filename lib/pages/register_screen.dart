@@ -1,69 +1,61 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:invoice_app/entities/auth_params/login_params.dart';
+import 'package:invoice_app/entities/auth_params/register_params.dart';
 import 'package:invoice_app/model/service_response.dart';
-import 'package:invoice_app/pages/dashboard_screen.dart';
-import 'package:invoice_app/pages/register_screen.dart';
+import 'package:invoice_app/pages/login_screen.dart';
 import 'package:invoice_app/service/auth_service.dart';
 import 'package:invoice_app/utils/snackbar.dart';
 import 'package:invoice_app/widgets/button.dart';
 import 'package:invoice_app/widgets/input_field.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Login")),
+      appBar: AppBar(title: const Text("Register")),
       body: ListView(
         children: [
           InputField(controller: emailController),
           InputField(controller: passwordController),
-          Button(onPressed: onSiginTap, child: const Text("Login")),
-          TextButton(
-            onPressed: onSignupTap,
-            child: const Text("SignUp", style: TextStyle(fontSize: 16)),
-          ),
+          Button(onPressed: register, child: const Text("Register")),
         ],
       ),
     );
   }
 
-  void onSignupTap() {
-    final route = MaterialPageRoute(
-      builder: (context) {
-        return const RegisterScreen();
-      },
-    );
-    Navigator.push(context, route);
-  }
-
-  Future<void> onSiginTap() async {
+  Future<void> register() async {
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
-    final loginParams = LoginParams(password: password, email: email);
+    final registerParams = RegisterParams(email: email, password: password);
     final authService = GetIt.instance.get<AuthService>();
-    final response = await authService.signinWithPassword(loginParams);
+
+    final response = await authService.registerEmailPassword(registerParams);
     if (!mounted) return;
     switch (response) {
       case SucessResult<User, String>():
-        final route = MaterialPageRoute(
-          builder: (context) => const DashboardScreen(),
+        SnackbarHelper.showSuccess(
+          context,
+          "User created successfully! Confirmation link sent to your register mail.",
         );
-
-        Navigator.pushReplacement(context, route);
+        navigateToLoginScreen();
       case FailureResult<User, String>(:final error):
         SnackbarHelper.showError(context, error);
     }
+  }
+
+  void navigateToLoginScreen() {
+    final route = MaterialPageRoute(builder: (context) => const LoginScreen());
+    Navigator.pushAndRemoveUntil(context, route, (route) => false);
   }
 }

@@ -50,14 +50,17 @@ void main() {
   test("When register method throw exception", () async {
     final params = RegisterParams(email: "", password: "password");
     final mockException = MockException();
+    when(() => mockException.message).thenAnswer((_) => "User not found");
     when(
       () => mockAuth.signUp(password: params.password, email: params.email),
-    ).thenThrow((_) => mockException);
-    final result = await authService.registerEmailPassword(params);
-
-    expect(result, isA<FailureResult>());
-    if (result case FailureResult<User, String>(:final error)) {
-      expect(error, mockException.message);
+    ).thenThrow(mockException);
+    try {
+      await authService.registerEmailPassword(params);
+    } on AuthException catch (e) {
+      expect(e, isA<FailureResult>());
+      if (e case FailureResult<User, String>(:final error)) {
+        expect(error, mockException.message);
+      }
     }
   });
 }

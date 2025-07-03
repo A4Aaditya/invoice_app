@@ -102,4 +102,38 @@ void main() {
       expect(data, mockuser);
     }
   });
+
+  test("when sign method return SuccessResult", () async {
+    final params = LoginParams(email: "user@gmail.com", password: "password");
+    final mockAuthResponse = MockAuthResponse();
+    final mockUser = MockUser();
+    when(() => mockAuthResponse.user).thenReturn(mockUser);
+
+    when(
+      () => mockAuth.signInWithPassword(
+        password: params.password,
+        email: params.email,
+      ),
+    ).thenAnswer((_) async => mockAuthResponse);
+
+    final result = await authService.signinWithPassword(params);
+
+    expect(result, isA<SucessResult>());
+    if (result case SucessResult<User, String>(:final data)) {
+      expect(data, mockUser);
+    }
+  });
+
+  test("sign method when FailureResult", () async {
+    final params = LoginParams(email: "user@gmail.com", password: "password");
+    final mockAuthResponse = MockAuthResponse();
+    when(
+      () => mockAuth.signInWithPassword(
+        password: params.password,
+        email: params.email,
+      ),
+    ).thenAnswer((_) async => mockAuthResponse);
+    final result = await authService.signinWithPassword(params);
+    expect(result, isA<FailureResult>());
+  });
 }

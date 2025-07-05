@@ -4,6 +4,7 @@ import 'package:invoice_app/entities/auth_params/register_params.dart';
 import 'package:invoice_app/model/service_response.dart';
 import 'package:invoice_app/pages/login_screen.dart';
 import 'package:invoice_app/service/auth_service.dart';
+import 'package:invoice_app/utils/extensions.dart';
 import 'package:invoice_app/utils/snackbar.dart';
 import 'package:invoice_app/widgets/button.dart';
 import 'package:invoice_app/widgets/input_field.dart';
@@ -19,17 +20,85 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  bool obscure = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Register")),
-      body: ListView(
-        children: [
-          InputField(controller: emailController),
-          InputField(controller: passwordController),
-          Button(onPressed: register, child: const Text("Register")),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(
+                    Icons.person_add_alt_1,
+                    size: 64,
+                    color: Colors.blueAccent,
+                  ),
+                  const SizedBox(height: 16),
+                  Text(
+                    context.i18n.registerScreeTitle,
+                    style: const TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 32),
+                  InputField(
+                    controller: emailController,
+                    hintText: context.i18n.registerScreenHintEmail,
+                    keyboardType: TextInputType.emailAddress,
+                    obscureText: false,
+                    prefixIcon: const Icon(Icons.email_outlined),
+                  ),
+                  const SizedBox(height: 16),
+                  InputField(
+                    controller: passwordController,
+                    hintText: context.i18n.registerScreenHintPassword,
+                    obscureText: obscure,
+                    keyboardType: TextInputType.text,
+                    prefixIcon: const Icon(Icons.lock_outline),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        obscure ? Icons.visibility_off : Icons.visibility,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          obscure = !obscure;
+                        });
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  SizedBox(
+                    width: double.infinity,
+                    child: Button(
+                      onPressed: register,
+                      child: Text(
+                        context.i18n.registerScreenRegisterButtonName,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(context.i18n.registerScreenText),
+                      TextButton(
+                        onPressed: navigateToLoginScreen,
+                        child: Text(context.i18n.registerScreenLoginButtonName),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

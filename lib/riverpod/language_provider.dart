@@ -12,7 +12,7 @@ class LanguageNotifier extends StateNotifier<String> {
     getLanguagePreference();
   }
 
-  final box = Hive.box<String>("settingsBox");
+  final box = Hive.box("settingsBox");
 
   Future<void> setLanguage(String language) async {
     await storeLanguagePreference(language);

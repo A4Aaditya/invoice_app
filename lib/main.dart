@@ -10,7 +10,7 @@ Future<void> main() async {
   await setupSupabase();
   setupLocator();
   await Hive.initFlutter();
-  await Hive.openBox<String>('settingsBox');
+  await Hive.openBox('settingsBox');
   runApp(const ProviderScope(child: MyApp()));
 }
 

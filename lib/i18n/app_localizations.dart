@@ -103,6 +103,132 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Invoice App'**
   String get appName;
+
+  /// No description provided for @homePageName.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get homePageName;
+
+  /// No description provided for @invoicePageName.
+  ///
+  /// In en, this message translates to:
+  /// **'Invoice'**
+  String get invoicePageName;
+
+  /// No description provided for @transactionPageName.
+  ///
+  /// In en, this message translates to:
+  /// **'Transaction'**
+  String get transactionPageName;
+
+  /// No description provided for @settingPageName.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settingPageName;
+
+  /// No description provided for @settingAccountTile.
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
+  String get settingAccountTile;
+
+  /// No description provided for @settingAccountTileDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage your account'**
+  String get settingAccountTileDescription;
+
+  /// No description provided for @settingNotificationTile.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get settingNotificationTile;
+
+  /// No description provided for @settingNotificationTileDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification preferences'**
+  String get settingNotificationTileDescription;
+
+  /// No description provided for @settingPrivacyTile.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy'**
+  String get settingPrivacyTile;
+
+  /// No description provided for @settingPrivacyTileDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy settings'**
+  String get settingPrivacyTileDescription;
+
+  /// No description provided for @settingThemeTile.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get settingThemeTile;
+
+  /// No description provided for @settingThemeTileDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Light / Dark mode'**
+  String get settingThemeTileDescription;
+
+  /// No description provided for @settingLanguageTile.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get settingLanguageTile;
+
+  /// No description provided for @settingLanguageTileDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Select app language'**
+  String get settingLanguageTileDescription;
+
+  /// No description provided for @settingLanguageTileChooseLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Language'**
+  String get settingLanguageTileChooseLanguage;
+
+  /// No description provided for @settingLanguageTileChooseEnglish.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get settingLanguageTileChooseEnglish;
+
+  /// No description provided for @settingLanguageTileChooseHindi.
+  ///
+  /// In en, this message translates to:
+  /// **'Hindi'**
+  String get settingLanguageTileChooseHindi;
+
+  /// No description provided for @settingAboutTile.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get settingAboutTile;
+
+  /// No description provided for @settingAboutTileDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'App information'**
+  String get settingAboutTileDescription;
+
+  /// No description provided for @settingLogoutTile.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get settingLogoutTile;
+
+  /// No description provided for @settingLogoutTileDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign out of your account'**
+  String get settingLogoutTileDescription;
 }
 
 class _AppLocalizationsDelegate

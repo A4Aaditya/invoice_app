@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:invoice_app/app.dart';
 import 'package:invoice_app/utils/service_locator.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -8,6 +9,8 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setupSupabase();
   setupLocator();
+  await Hive.initFlutter();
+  await Hive.openBox<String>('settingsBox');
   runApp(const ProviderScope(child: MyApp()));
 }
 

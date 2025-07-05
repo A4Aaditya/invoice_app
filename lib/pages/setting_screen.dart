@@ -197,7 +197,7 @@ class SettingScreen extends StatelessWidget {
       onTap: onTap,
       contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      hoverColor: Theme.of(context).colorScheme.primary.withOpacity(0.05),
+      hoverColor: Theme.of(context).colorScheme.primary.withValues(),
     );
   }
 

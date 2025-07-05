@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get_it/get_it.dart';
+import 'package:invoice_app/entities/auth_params/no_params.dart';
+import 'package:invoice_app/pages/login_screen.dart';
 import 'package:invoice_app/riverpod/language_provider.dart';
 import 'package:invoice_app/riverpod/theme_provider.dart';
+import 'package:invoice_app/service/auth_service.dart';
 import 'package:invoice_app/utils/extensions.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -157,11 +161,98 @@ class SettingScreen extends StatelessWidget {
             bgColor: Colors.red.shade100,
             title: context.i18n.settingLogoutTile,
             subtitle: context.i18n.settingLogoutTileDescription,
-            onTap: () {
+            onTap: () async {
               // Add your logout logic here
-              ScaffoldMessenger.of(
-                context,
-              ).showSnackBar(const SnackBar(content: Text('Logged out')));
+              showDialog(
+                context: context,
+                builder: (context) => Dialog(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(24),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const SizedBox(height: 16),
+                        Text(
+                          context.i18n.settingCofirmLogout, // "Logout"
+                          style: Theme.of(context).textTheme.titleLarge
+                              ?.copyWith(fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(height: 12),
+                        Text(
+                          context.i18n.settingConfirmText,
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                        const SizedBox(height: 24),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              child: OutlinedButton(
+                                onPressed: () => Navigator.of(context).pop(),
+                                style: OutlinedButton.styleFrom(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 14,
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                ),
+                                child: Text(
+                                  context.i18n.settingCancelButtonName,
+                                  style: const TextStyle(fontSize: 16),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: ElevatedButton(
+                                onPressed: () async {
+                                  // Perform logout
+                                  await GetIt.instance
+                                      .get<AuthService>()
+                                      .signOut(NoParams());
+                                  if (!context.mounted) return;
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(content: Text('Logged out')),
+                                  );
+                                  final route = MaterialPageRoute(
+                                    builder: (context) {
+                                      return const LoginScreen();
+                                    },
+                                  );
+                                  Navigator.pushAndRemoveUntil(
+                                    context,
+                                    route,
+                                    (route) => false,
+                                  );
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.red,
+                                  foregroundColor: Colors.white,
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 14,
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                ),
+                                child: Text(
+                                  context.i18n.settingLogoutButtonName,
+                                  style: const TextStyle(fontSize: 16),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              );
             },
             trailing: const Icon(Icons.exit_to_app, color: Colors.red),
           ),

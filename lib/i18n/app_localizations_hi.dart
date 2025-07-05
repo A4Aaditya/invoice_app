@@ -33,7 +33,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get settingNotificationTile => 'सूचनाएं';
 
   @override
-  String get settingNotificationTileDescription => 'सूचना वरीयताएँ';
+  String get settingNotificationTileDescription => 'सूचना प्राथमिकताएं';
 
   @override
   String get settingPrivacyTile => 'गोपनीयता';
@@ -75,6 +75,18 @@ class AppLocalizationsHi extends AppLocalizations {
   String get settingLogoutTileDescription => 'अपने खाते से साइन आउट करें';
 
   @override
+  String get settingCofirmLogout => 'लॉग आउट की पुष्टि करें';
+
+  @override
+  String get settingConfirmText => 'आप लॉग आउट होने वाले हैं';
+
+  @override
+  String get settingCancelButtonName => 'रद्द करें';
+
+  @override
+  String get settingLogoutButtonName => 'लॉग आउट';
+
+  @override
   String get registerScreeTitle => 'खाता बनाएँ';
 
   @override
@@ -87,7 +99,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get registerScreenRegisterButtonName => 'रजिस्टर करें';
 
   @override
-  String get registerScreenText => 'पहले से खाता है?';
+  String get registerScreenText => 'क्या आपके पास पहले से खाता है?';
 
   @override
   String get registerScreenLoginButtonName => 'लॉगिन करें';

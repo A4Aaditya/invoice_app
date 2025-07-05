@@ -230,6 +230,30 @@ abstract class AppLocalizations {
   /// **'Sign out of your account'**
   String get settingLogoutTileDescription;
 
+  /// No description provided for @settingCofirmLogout.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Logout'**
+  String get settingCofirmLogout;
+
+  /// No description provided for @settingConfirmText.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ll be logged out'**
+  String get settingConfirmText;
+
+  /// No description provided for @settingCancelButtonName.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get settingCancelButtonName;
+
+  /// No description provided for @settingLogoutButtonName.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get settingLogoutButtonName;
+
   /// No description provided for @registerScreeTitle.
   ///
   /// In en, this message translates to:

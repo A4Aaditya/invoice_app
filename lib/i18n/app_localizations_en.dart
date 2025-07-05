@@ -75,6 +75,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingLogoutTileDescription => 'Sign out of your account';
 
   @override
+  String get settingCofirmLogout => 'Confirm Logout';
+
+  @override
+  String get settingConfirmText => 'You\'ll be logged out';
+
+  @override
+  String get settingCancelButtonName => 'Cancel';
+
+  @override
+  String get settingLogoutButtonName => 'Logout';
+
+  @override
   String get registerScreeTitle => 'Create Account';
 
   @override

@@ -229,6 +229,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sign out of your account'**
   String get settingLogoutTileDescription;
+
+  /// No description provided for @registerScreeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Account'**
+  String get registerScreeTitle;
+
+  /// No description provided for @registerScreenHintEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get registerScreenHintEmail;
+
+  /// No description provided for @registerScreenHintPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get registerScreenHintPassword;
+
+  /// No description provided for @registerScreenRegisterButtonName.
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get registerScreenRegisterButtonName;
+
+  /// No description provided for @registerScreenText.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account?'**
+  String get registerScreenText;
+
+  /// No description provided for @registerScreenLoginButtonName.
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get registerScreenLoginButtonName;
+
+  /// No description provided for @loginRegisterScreenWelcomeText.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome Back!'**
+  String get loginRegisterScreenWelcomeText;
+
+  /// No description provided for @loginScreenLoginAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Login to your account'**
+  String get loginScreenLoginAccount;
+
+  /// No description provided for @loginScreenEmailText.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get loginScreenEmailText;
+
+  /// No description provided for @loginScreenPasswordText.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get loginScreenPasswordText;
+
+  /// No description provided for @loginScreenLoginButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get loginScreenLoginButton;
+
+  /// No description provided for @loginScreenSignupButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Up'**
+  String get loginScreenSignupButton;
+
+  /// No description provided for @loginScreenDontAccountText.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t have an account?'**
+  String get loginScreenDontAccountText;
 }
 
 class _AppLocalizationsDelegate

@@ -73,4 +73,43 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingLogoutTileDescription => 'Sign out of your account';
+
+  @override
+  String get registerScreeTitle => 'Create Account';
+
+  @override
+  String get registerScreenHintEmail => 'Email';
+
+  @override
+  String get registerScreenHintPassword => 'Password';
+
+  @override
+  String get registerScreenRegisterButtonName => 'Register';
+
+  @override
+  String get registerScreenText => 'Already have an account?';
+
+  @override
+  String get registerScreenLoginButtonName => 'Login';
+
+  @override
+  String get loginRegisterScreenWelcomeText => 'Welcome Back!';
+
+  @override
+  String get loginScreenLoginAccount => 'Login to your account';
+
+  @override
+  String get loginScreenEmailText => 'Email';
+
+  @override
+  String get loginScreenPasswordText => 'Password';
+
+  @override
+  String get loginScreenLoginButton => 'Login';
+
+  @override
+  String get loginScreenSignupButton => 'Sign Up';
+
+  @override
+  String get loginScreenDontAccountText => 'Don\'t have an account?';
 }

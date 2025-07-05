@@ -27,13 +27,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get settingAccountTile => 'खाता';
 
   @override
-  String get settingAccountTileDescription => 'अपने खाते को प्रबंधित करें';
+  String get settingAccountTileDescription => 'अपने खाते का प्रबंधन करें';
 
   @override
   String get settingNotificationTile => 'सूचनाएं';
 
   @override
-  String get settingNotificationTileDescription => 'सूचना प्राथमिकताएं';
+  String get settingNotificationTileDescription => 'सूचना वरीयताएँ';
 
   @override
   String get settingPrivacyTile => 'गोपनीयता';
@@ -73,4 +73,43 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get settingLogoutTileDescription => 'अपने खाते से साइन आउट करें';
+
+  @override
+  String get registerScreeTitle => 'खाता बनाएँ';
+
+  @override
+  String get registerScreenHintEmail => 'ईमेल';
+
+  @override
+  String get registerScreenHintPassword => 'पासवर्ड';
+
+  @override
+  String get registerScreenRegisterButtonName => 'रजिस्टर करें';
+
+  @override
+  String get registerScreenText => 'पहले से खाता है?';
+
+  @override
+  String get registerScreenLoginButtonName => 'लॉगिन करें';
+
+  @override
+  String get loginRegisterScreenWelcomeText => 'वापसी पर स्वागत है!';
+
+  @override
+  String get loginScreenLoginAccount => 'अपने खाते में लॉगिन करें';
+
+  @override
+  String get loginScreenEmailText => 'ईमेल';
+
+  @override
+  String get loginScreenPasswordText => 'पासवर्ड';
+
+  @override
+  String get loginScreenLoginButton => 'लॉगिन';
+
+  @override
+  String get loginScreenSignupButton => 'साइन अप करें';
+
+  @override
+  String get loginScreenDontAccountText => 'क्या आपका खाता नहीं है?';
 }

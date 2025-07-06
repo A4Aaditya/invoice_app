@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
 import 'package:invoice_app/entities/auth_params/no_params.dart';
-import 'package:invoice_app/pages/login_screen.dart';
+import 'package:invoice_app/pages/auth/login_screen.dart';
 import 'package:invoice_app/riverpod/language_provider.dart';
 import 'package:invoice_app/riverpod/theme_provider.dart';
 import 'package:invoice_app/service/auth_service.dart';
@@ -15,7 +15,7 @@ class SettingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(context.i18n.settingPageName),
+        title: Text(context.i18n.settings),
         centerTitle: true,
         elevation: 2,
       ),
@@ -27,7 +27,7 @@ class SettingScreen extends StatelessWidget {
             icon: Icons.person,
             iconColor: Colors.blue,
             bgColor: Colors.blue.shade100,
-            title: context.i18n.settingAccountTile,
+            title: context.i18n.settings,
             subtitle: context.i18n.settingAccountTileDescription,
             onTap: () {},
           ),
@@ -37,8 +37,8 @@ class SettingScreen extends StatelessWidget {
             icon: Icons.notifications,
             iconColor: Colors.orange,
             bgColor: Colors.orange.shade100,
-            title: context.i18n.settingNotificationTile,
-            subtitle: context.i18n.settingNotificationTileDescription,
+            title: context.i18n.notifications,
+            subtitle: context.i18n.notificationPreferences,
             onTap: () {},
           ),
           _buildDivider(),
@@ -47,8 +47,8 @@ class SettingScreen extends StatelessWidget {
             icon: Icons.lock,
             iconColor: Colors.green,
             bgColor: Colors.green.shade100,
-            title: context.i18n.settingPrivacyTile,
-            subtitle: context.i18n.settingPrivacyTileDescription,
+            title: context.i18n.privacy,
+            subtitle: context.i18n.privacySettings,
             onTap: () {},
           ),
           _buildDivider(),
@@ -59,8 +59,8 @@ class SettingScreen extends StatelessWidget {
                 icon: Icons.palette,
                 iconColor: Colors.purple,
                 bgColor: Colors.purple.shade100,
-                title: context.i18n.settingThemeTile,
-                subtitle: context.i18n.settingThemeTileDescription,
+                title: context.i18n.theme,
+                subtitle: context.i18n.lightAndDarkMode,
                 onTap: () {},
                 trailing: Switch(
                   value: Theme.of(context).brightness == Brightness.dark,
@@ -80,8 +80,8 @@ class SettingScreen extends StatelessWidget {
                 icon: Icons.language,
                 iconColor: Colors.indigo,
                 bgColor: Colors.indigo.shade100,
-                title: context.i18n.settingLanguageTile,
-                subtitle: context.i18n.settingLanguageTileDescription,
+                title: context.i18n.language,
+                subtitle: context.i18n.selectAppLanguage,
                 onTap: () {
                   showModalBottomSheet(
                     context: context,
@@ -100,7 +100,7 @@ class SettingScreen extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              context.i18n.settingLanguageTileChooseLanguage,
+                              context.i18n.chooseLanguage,
                               style: const TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
@@ -109,9 +109,7 @@ class SettingScreen extends StatelessWidget {
                             const SizedBox(height: 16),
                             ListTile(
                               leading: const Icon(Icons.language),
-                              title: Text(
-                                context.i18n.settingLanguageTileChooseEnglish,
-                              ),
+                              title: Text(context.i18n.english),
                               onTap: () {
                                 ref
                                     .read(languageProvider.notifier)
@@ -122,9 +120,7 @@ class SettingScreen extends StatelessWidget {
                             ),
                             ListTile(
                               leading: const Icon(Icons.language),
-                              title: Text(
-                                context.i18n.settingLanguageTileChooseHindi,
-                              ),
+                              title: Text(context.i18n.hindi),
                               onTap: () {
                                 ref
                                     .read(languageProvider.notifier)
@@ -149,7 +145,7 @@ class SettingScreen extends StatelessWidget {
             icon: Icons.info,
             iconColor: Colors.teal,
             bgColor: Colors.teal.shade100,
-            title: context.i18n.settingAboutTile,
+            title: context.i18n.about,
             subtitle: context.i18n.settingAboutTileDescription,
             onTap: () {},
           ),
@@ -159,7 +155,7 @@ class SettingScreen extends StatelessWidget {
             icon: Icons.logout,
             iconColor: Colors.red,
             bgColor: Colors.red.shade100,
-            title: context.i18n.settingLogoutTile,
+            title: context.i18n.logout,
             subtitle: context.i18n.settingLogoutTileDescription,
             onTap: () async {
               // Add your logout logic here
@@ -202,7 +198,7 @@ class SettingScreen extends StatelessWidget {
                                   ),
                                 ),
                                 child: Text(
-                                  context.i18n.settingCancelButtonName,
+                                  context.i18n.cancel,
                                   style: const TextStyle(fontSize: 16),
                                 ),
                               ),
@@ -241,7 +237,7 @@ class SettingScreen extends StatelessWidget {
                                   ),
                                 ),
                                 child: Text(
-                                  context.i18n.settingLogoutButtonName,
+                                  context.i18n.logout,
                                   style: const TextStyle(fontSize: 16),
                                 ),
                               ),

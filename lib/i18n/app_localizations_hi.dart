@@ -15,94 +15,82 @@ class AppLocalizationsHi extends AppLocalizations {
   String get homePageName => 'होम';
 
   @override
-  String get invoicePageName => 'इनवॉइस';
+  String get invoice => 'इनवॉइस';
 
   @override
-  String get transactionPageName => 'लेनदेन';
+  String get transaction => 'लेन-देन';
 
   @override
-  String get settingPageName => 'सेटिंग्स';
+  String get settings => 'सेटिंग्स';
 
   @override
-  String get settingAccountTile => 'खाता';
+  String get account => 'खाता';
 
   @override
   String get settingAccountTileDescription => 'अपने खाते का प्रबंधन करें';
 
   @override
-  String get settingNotificationTile => 'सूचनाएं';
+  String get notifications => 'सूचनाएं';
 
   @override
-  String get settingNotificationTileDescription => 'सूचना प्राथमिकताएं';
+  String get notificationPreferences => 'सूचना प्राथमिकताएं';
 
   @override
-  String get settingPrivacyTile => 'गोपनीयता';
+  String get privacy => 'गोपनीयता';
 
   @override
-  String get settingPrivacyTileDescription => 'गोपनीयता सेटिंग्स';
+  String get privacySettings => 'गोपनीयता सेटिंग्स';
 
   @override
-  String get settingThemeTile => 'थीम';
+  String get theme => 'थीम';
 
   @override
-  String get settingThemeTileDescription => 'लाइट / डार्क मोड';
+  String get lightAndDarkMode => 'लाइट / डार्क मोड';
 
   @override
-  String get settingLanguageTile => 'भाषा';
+  String get language => 'भाषा';
 
   @override
-  String get settingLanguageTileDescription => 'ऐप की भाषा चुनें';
+  String get selectAppLanguage => 'ऐप की भाषा चुनें';
 
   @override
-  String get settingLanguageTileChooseLanguage => 'भाषा चुनें';
+  String get chooseLanguage => 'भाषा चुनें';
 
   @override
-  String get settingLanguageTileChooseEnglish => 'अंग्रेज़ी';
+  String get english => 'अंग्रेज़ी';
 
   @override
-  String get settingLanguageTileChooseHindi => 'हिंदी';
+  String get hindi => 'हिन्दी';
 
   @override
-  String get settingAboutTile => 'ऐप के बारे में';
+  String get about => 'ऐप के बारे में';
 
   @override
   String get settingAboutTileDescription => 'ऐप की जानकारी';
 
   @override
-  String get settingLogoutTile => 'लॉग आउट';
-
-  @override
   String get settingLogoutTileDescription => 'अपने खाते से साइन आउट करें';
 
   @override
-  String get settingCofirmLogout => 'लॉग आउट की पुष्टि करें';
+  String get settingCofirmLogout => 'लॉगआउट की पुष्टि करें';
 
   @override
-  String get settingConfirmText => 'आप लॉग आउट होने वाले हैं';
+  String get settingConfirmText => 'आप लॉग आउट हो जाएंगे';
 
   @override
-  String get settingCancelButtonName => 'रद्द करें';
+  String get cancel => 'रद्द करें';
 
   @override
-  String get settingLogoutButtonName => 'लॉग आउट';
+  String get logout => 'लॉगआउट';
 
   @override
-  String get registerScreeTitle => 'खाता बनाएँ';
+  String get createAccount => 'खाता बनाएं';
 
   @override
-  String get registerScreenHintEmail => 'ईमेल';
-
-  @override
-  String get registerScreenHintPassword => 'पासवर्ड';
-
-  @override
-  String get registerScreenRegisterButtonName => 'रजिस्टर करें';
+  String get register => 'रजिस्टर करें';
 
   @override
   String get registerScreenText => 'क्या आपके पास पहले से खाता है?';
-
-  @override
-  String get registerScreenLoginButtonName => 'लॉगिन करें';
 
   @override
   String get loginRegisterScreenWelcomeText => 'वापसी पर स्वागत है!';
@@ -111,16 +99,16 @@ class AppLocalizationsHi extends AppLocalizations {
   String get loginScreenLoginAccount => 'अपने खाते में लॉगिन करें';
 
   @override
-  String get loginScreenEmailText => 'ईमेल';
+  String get emailText => 'ईमेल';
 
   @override
-  String get loginScreenPasswordText => 'पासवर्ड';
+  String get passwordText => 'पासवर्ड';
 
   @override
-  String get loginScreenLoginButton => 'लॉगिन';
+  String get loginText => 'लॉगिन';
 
   @override
-  String get loginScreenSignupButton => 'साइन अप करें';
+  String get signupText => 'साइन अप करें';
 
   @override
   String get loginScreenDontAccountText => 'क्या आपका खाता नहीं है?';

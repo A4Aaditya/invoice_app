@@ -15,61 +15,58 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homePageName => 'Home';
 
   @override
-  String get invoicePageName => 'Invoice';
+  String get invoice => 'Invoice';
 
   @override
-  String get transactionPageName => 'Transaction';
+  String get transaction => 'Transaction';
 
   @override
-  String get settingPageName => 'Settings';
+  String get settings => 'Settings';
 
   @override
-  String get settingAccountTile => 'Account';
+  String get account => 'Account';
 
   @override
   String get settingAccountTileDescription => 'Manage your account';
 
   @override
-  String get settingNotificationTile => 'Notifications';
+  String get notifications => 'Notifications';
 
   @override
-  String get settingNotificationTileDescription => 'Notification preferences';
+  String get notificationPreferences => 'Notification preferences';
 
   @override
-  String get settingPrivacyTile => 'Privacy';
+  String get privacy => 'Privacy';
 
   @override
-  String get settingPrivacyTileDescription => 'Privacy settings';
+  String get privacySettings => 'Privacy settings';
 
   @override
-  String get settingThemeTile => 'Theme';
+  String get theme => 'Theme';
 
   @override
-  String get settingThemeTileDescription => 'Light / Dark mode';
+  String get lightAndDarkMode => 'Light / Dark mode';
 
   @override
-  String get settingLanguageTile => 'Language';
+  String get language => 'Language';
 
   @override
-  String get settingLanguageTileDescription => 'Select app language';
+  String get selectAppLanguage => 'Select app language';
 
   @override
-  String get settingLanguageTileChooseLanguage => 'Choose Language';
+  String get chooseLanguage => 'Choose Language';
 
   @override
-  String get settingLanguageTileChooseEnglish => 'English';
+  String get english => 'English';
 
   @override
-  String get settingLanguageTileChooseHindi => 'Hindi';
+  String get hindi => 'Hindi';
 
   @override
-  String get settingAboutTile => 'About';
+  String get about => 'About';
 
   @override
   String get settingAboutTileDescription => 'App information';
-
-  @override
-  String get settingLogoutTile => 'Logout';
 
   @override
   String get settingLogoutTileDescription => 'Sign out of your account';
@@ -81,28 +78,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingConfirmText => 'You\'ll be logged out';
 
   @override
-  String get settingCancelButtonName => 'Cancel';
+  String get cancel => 'Cancel';
 
   @override
-  String get settingLogoutButtonName => 'Logout';
+  String get logout => 'Logout';
 
   @override
-  String get registerScreeTitle => 'Create Account';
+  String get createAccount => 'Create Account';
 
   @override
-  String get registerScreenHintEmail => 'Email';
-
-  @override
-  String get registerScreenHintPassword => 'Password';
-
-  @override
-  String get registerScreenRegisterButtonName => 'Register';
+  String get register => 'Register';
 
   @override
   String get registerScreenText => 'Already have an account?';
-
-  @override
-  String get registerScreenLoginButtonName => 'Login';
 
   @override
   String get loginRegisterScreenWelcomeText => 'Welcome Back!';
@@ -111,16 +99,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get loginScreenLoginAccount => 'Login to your account';
 
   @override
-  String get loginScreenEmailText => 'Email';
+  String get emailText => 'Email';
 
   @override
-  String get loginScreenPasswordText => 'Password';
+  String get passwordText => 'Password';
 
   @override
-  String get loginScreenLoginButton => 'Login';
+  String get loginText => 'Login';
 
   @override
-  String get loginScreenSignupButton => 'Sign Up';
+  String get signupText => 'Sign Up';
 
   @override
   String get loginScreenDontAccountText => 'Don\'t have an account?';

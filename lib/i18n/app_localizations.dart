@@ -110,29 +110,29 @@ abstract class AppLocalizations {
   /// **'Home'**
   String get homePageName;
 
-  /// No description provided for @invoicePageName.
+  /// No description provided for @invoice.
   ///
   /// In en, this message translates to:
   /// **'Invoice'**
-  String get invoicePageName;
+  String get invoice;
 
-  /// No description provided for @transactionPageName.
+  /// No description provided for @transaction.
   ///
   /// In en, this message translates to:
   /// **'Transaction'**
-  String get transactionPageName;
+  String get transaction;
 
-  /// No description provided for @settingPageName.
+  /// No description provided for @settings.
   ///
   /// In en, this message translates to:
   /// **'Settings'**
-  String get settingPageName;
+  String get settings;
 
-  /// No description provided for @settingAccountTile.
+  /// No description provided for @account.
   ///
   /// In en, this message translates to:
   /// **'Account'**
-  String get settingAccountTile;
+  String get account;
 
   /// No description provided for @settingAccountTileDescription.
   ///
@@ -140,89 +140,83 @@ abstract class AppLocalizations {
   /// **'Manage your account'**
   String get settingAccountTileDescription;
 
-  /// No description provided for @settingNotificationTile.
+  /// No description provided for @notifications.
   ///
   /// In en, this message translates to:
   /// **'Notifications'**
-  String get settingNotificationTile;
+  String get notifications;
 
-  /// No description provided for @settingNotificationTileDescription.
+  /// No description provided for @notificationPreferences.
   ///
   /// In en, this message translates to:
   /// **'Notification preferences'**
-  String get settingNotificationTileDescription;
+  String get notificationPreferences;
 
-  /// No description provided for @settingPrivacyTile.
+  /// No description provided for @privacy.
   ///
   /// In en, this message translates to:
   /// **'Privacy'**
-  String get settingPrivacyTile;
+  String get privacy;
 
-  /// No description provided for @settingPrivacyTileDescription.
+  /// No description provided for @privacySettings.
   ///
   /// In en, this message translates to:
   /// **'Privacy settings'**
-  String get settingPrivacyTileDescription;
+  String get privacySettings;
 
-  /// No description provided for @settingThemeTile.
+  /// No description provided for @theme.
   ///
   /// In en, this message translates to:
   /// **'Theme'**
-  String get settingThemeTile;
+  String get theme;
 
-  /// No description provided for @settingThemeTileDescription.
+  /// No description provided for @lightAndDarkMode.
   ///
   /// In en, this message translates to:
   /// **'Light / Dark mode'**
-  String get settingThemeTileDescription;
+  String get lightAndDarkMode;
 
-  /// No description provided for @settingLanguageTile.
+  /// No description provided for @language.
   ///
   /// In en, this message translates to:
   /// **'Language'**
-  String get settingLanguageTile;
+  String get language;
 
-  /// No description provided for @settingLanguageTileDescription.
+  /// No description provided for @selectAppLanguage.
   ///
   /// In en, this message translates to:
   /// **'Select app language'**
-  String get settingLanguageTileDescription;
+  String get selectAppLanguage;
 
-  /// No description provided for @settingLanguageTileChooseLanguage.
+  /// No description provided for @chooseLanguage.
   ///
   /// In en, this message translates to:
   /// **'Choose Language'**
-  String get settingLanguageTileChooseLanguage;
+  String get chooseLanguage;
 
-  /// No description provided for @settingLanguageTileChooseEnglish.
+  /// No description provided for @english.
   ///
   /// In en, this message translates to:
   /// **'English'**
-  String get settingLanguageTileChooseEnglish;
+  String get english;
 
-  /// No description provided for @settingLanguageTileChooseHindi.
+  /// No description provided for @hindi.
   ///
   /// In en, this message translates to:
   /// **'Hindi'**
-  String get settingLanguageTileChooseHindi;
+  String get hindi;
 
-  /// No description provided for @settingAboutTile.
+  /// No description provided for @about.
   ///
   /// In en, this message translates to:
   /// **'About'**
-  String get settingAboutTile;
+  String get about;
 
   /// No description provided for @settingAboutTileDescription.
   ///
   /// In en, this message translates to:
   /// **'App information'**
   String get settingAboutTileDescription;
-
-  /// No description provided for @settingLogoutTile.
-  ///
-  /// In en, this message translates to:
-  /// **'Logout'**
-  String get settingLogoutTile;
 
   /// No description provided for @settingLogoutTileDescription.
   ///
@@ -242,53 +236,35 @@ abstract class AppLocalizations {
   /// **'You\'ll be logged out'**
   String get settingConfirmText;
 
-  /// No description provided for @settingCancelButtonName.
+  /// No description provided for @cancel.
   ///
   /// In en, this message translates to:
   /// **'Cancel'**
-  String get settingCancelButtonName;
+  String get cancel;
 
-  /// No description provided for @settingLogoutButtonName.
+  /// No description provided for @logout.
   ///
   /// In en, this message translates to:
   /// **'Logout'**
-  String get settingLogoutButtonName;
+  String get logout;
 
-  /// No description provided for @registerScreeTitle.
+  /// No description provided for @createAccount.
   ///
   /// In en, this message translates to:
   /// **'Create Account'**
-  String get registerScreeTitle;
+  String get createAccount;
 
-  /// No description provided for @registerScreenHintEmail.
-  ///
-  /// In en, this message translates to:
-  /// **'Email'**
-  String get registerScreenHintEmail;
-
-  /// No description provided for @registerScreenHintPassword.
-  ///
-  /// In en, this message translates to:
-  /// **'Password'**
-  String get registerScreenHintPassword;
-
-  /// No description provided for @registerScreenRegisterButtonName.
+  /// No description provided for @register.
   ///
   /// In en, this message translates to:
   /// **'Register'**
-  String get registerScreenRegisterButtonName;
+  String get register;
 
   /// No description provided for @registerScreenText.
   ///
   /// In en, this message translates to:
   /// **'Already have an account?'**
   String get registerScreenText;
-
-  /// No description provided for @registerScreenLoginButtonName.
-  ///
-  /// In en, this message translates to:
-  /// **'Login'**
-  String get registerScreenLoginButtonName;
 
   /// No description provided for @loginRegisterScreenWelcomeText.
   ///
@@ -302,29 +278,29 @@ abstract class AppLocalizations {
   /// **'Login to your account'**
   String get loginScreenLoginAccount;
 
-  /// No description provided for @loginScreenEmailText.
+  /// No description provided for @emailText.
   ///
   /// In en, this message translates to:
   /// **'Email'**
-  String get loginScreenEmailText;
+  String get emailText;
 
-  /// No description provided for @loginScreenPasswordText.
+  /// No description provided for @passwordText.
   ///
   /// In en, this message translates to:
   /// **'Password'**
-  String get loginScreenPasswordText;
+  String get passwordText;
 
-  /// No description provided for @loginScreenLoginButton.
+  /// No description provided for @loginText.
   ///
   /// In en, this message translates to:
   /// **'Login'**
-  String get loginScreenLoginButton;
+  String get loginText;
 
-  /// No description provided for @loginScreenSignupButton.
+  /// No description provided for @signupText.
   ///
   /// In en, this message translates to:
   /// **'Sign Up'**
-  String get loginScreenSignupButton;
+  String get signupText;
 
   /// No description provided for @loginScreenDontAccountText.
   ///

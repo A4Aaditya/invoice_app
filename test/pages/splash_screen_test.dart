@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:invoice_app/i18n/app_localizations.dart';
 import 'package:invoice_app/pages/splash_screen.dart';
 
 void main() {
   Widget renderScreen() {
-    return const MaterialApp(
-      home: SplashScreen(),
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      locale: Locale('en'),
+    return const ProviderScope(
+      child: MaterialApp(
+        home: SplashScreen(),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        locale: Locale('en'),
+      ),
     );
   }
 

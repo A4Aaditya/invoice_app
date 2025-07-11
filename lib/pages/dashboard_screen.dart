@@ -22,20 +22,9 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
           return ref.watch(screenProviderByIndex).screen;
         },
       ),
-      bottomNavigationBar: BottomNav(
-        onHomeClicked: () {
-          bottomNavRead.changeIndex(0);
-        },
-
-        onInvoiceClicked: () {
-          bottomNavRead.changeIndex(1);
-        },
-        onTransactionClicked: () {
-          bottomNavRead.changeIndex(2);
-        },
-
-        onSettingClicked: () {
-          bottomNavRead.changeIndex(3);
+      bottomNavigationBar: CustomottomNavigationBar(
+        onTabChange: (index) {
+          bottomNavRead.changeIndex(index);
         },
       ),
     );

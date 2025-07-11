@@ -2,21 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:invoice_app/riverpod/bottom_nav_index_provider.dart';
 
-class BottomNav extends ConsumerWidget {
-  final void Function() onHomeClicked;
-  final void Function() onInvoiceClicked;
-  final void Function() onSettingClicked;
-  final void Function() onTransactionClicked;
-  const BottomNav({
-    super.key,
-    required this.onHomeClicked,
-    required this.onSettingClicked,
-    required this.onTransactionClicked,
-    required this.onInvoiceClicked,
-  });
+class CustomottomNavigationBar extends ConsumerWidget {
+  final void Function(int index) onTabChange;
+  const CustomottomNavigationBar({super.key, required this.onTabChange});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final primaryColor = Theme.of(context).colorScheme.primary;
+    final secondaryColor = Theme.of(context).colorScheme.secondary;
     return SafeArea(
       child: Consumer(
         builder: (context, ref, child) {
@@ -26,23 +19,23 @@ class BottomNav extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 IconButton(
-                  onPressed: onHomeClicked,
-                  color: (bottomNavWatch == 0) ? Colors.blue : Colors.grey,
+                  onPressed: () => onTabChange(0),
+                  color: (bottomNavWatch == 0) ? primaryColor : secondaryColor,
                   icon: const Icon(Icons.home, size: 28),
                 ),
                 IconButton(
-                  onPressed: onInvoiceClicked,
-                  color: (bottomNavWatch == 1) ? Colors.blue : Colors.grey,
-                  icon: const Icon(Icons.receipt_long, size: 28),
+                  onPressed: () => onTabChange(1),
+                  color: (bottomNavWatch == 1) ? primaryColor : secondaryColor,
+                  icon: const Icon(Icons.hotel, size: 28),
                 ),
                 IconButton(
-                  onPressed: onTransactionClicked,
-                  color: (bottomNavWatch == 2) ? Colors.blue : Colors.grey,
+                  onPressed: () => onTabChange(2),
+                  color: (bottomNavWatch == 2) ? primaryColor : secondaryColor,
                   icon: const Icon(Icons.account_balance_wallet, size: 28),
                 ),
                 IconButton(
-                  onPressed: onSettingClicked,
-                  color: (bottomNavWatch == 3) ? Colors.blue : Colors.grey,
+                  onPressed: () => onTabChange(3),
+                  color: (bottomNavWatch == 3) ? primaryColor : secondaryColor,
                   icon: const Icon(Icons.settings, size: 28),
                 ),
               ],

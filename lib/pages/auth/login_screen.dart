@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:invoice_app/entities/auth_params/login_params.dart';
@@ -16,6 +17,11 @@ class LoginScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     listenAuthProvider(context, ref);
 
+    final loginState = ref.watch(loginProvider);
+    final authState = ref.watch(authProvider);
+    final loginNotifier = ref.read(loginProvider.notifier);
+    final isLoading = authState.isLoading;
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -26,17 +32,17 @@ class LoginScreen extends ConsumerWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.lock_outline,
-                    size: 72,
-                    color: Colors.blueAccent,
+                    size: 120,
+                    color: Theme.of(context).primaryColor,
                   ),
                   const SizedBox(height: 24),
                   Text(
                     context.i18n.loginRegisterScreenWelcomeText,
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                       fontWeight: FontWeight.bold,
-                      color: Colors.blueAccent,
+                      color: Theme.of(context).primaryColor,
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -45,61 +51,56 @@ class LoginScreen extends ConsumerWidget {
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   const SizedBox(height: 32),
-
-                  AuthFormWidget(
-                    emailController: ref.watch(loginEmailControllerProvider),
-                    isObscure: ref.watch(loginObscureTextProvider),
+                  AuthForm(
+                    emailController: loginState.emailController,
+                    enabled: !ref.watch(authProvider).isLoading,
+                    isObscure: ref.watch(loginProvider).passwordObscureText,
                     onVisibilityIconClicked: () {
-                      ref
-                          .read(loginObscureTextProvider.notifier)
-                          .update((state) => !state);
+                      loginNotifier.toggle();
                     },
-                    passwordController: ref.watch(
-                      loginPasswordControllerProvider,
-                    ),
+                    passwordController: loginState.passwordController,
                   ),
 
                   const SizedBox(height: 24),
 
-                  Consumer(
-                    builder: (context, ref, child) {
-                      if (ref.watch(authProvider).isLoading) {
-                        return const Center(
-                          child: CircularProgressIndicator.adaptive(),
-                        );
-                      }
+                  Column(
+                    children: [
+                      SizedBox(
+                        width: double.infinity,
+                        child: Button(
+                          isDisabled: isLoading,
+                          onPressed: () => onSignInTap(ref),
+                          child: Text(context.i18n.loginText),
+                        ),
+                      ),
 
-                      return Column(
-                        children: [
-                          SizedBox(
-                            width: double.infinity,
-                            child: Button(
-                              onPressed: () => onSignInTap(ref),
-                              child: Text(context.i18n.loginText),
+                      const SizedBox(height: 16),
+
+                      RichText(
+                        text: TextSpan(
+                          style: DefaultTextStyle.of(
+                            context,
+                          ).style.copyWith(fontSize: 16),
+                          children: [
+                            TextSpan(
+                              text:
+                                  '${context.i18n.loginScreenDontAccountText} ',
                             ),
-                          ),
-
-                          const SizedBox(height: 16),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(context.i18n.loginScreenDontAccountText),
-                              TextButton(
-                                onPressed: () => onSignupTap(context),
-                                child: Text(
-                                  context.i18n.signupText,
-                                  style: const TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.blueAccent,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
+                            TextSpan(
+                              text: context.i18n.signupText,
+                              style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                                fontWeight: FontWeight.bold,
                               ),
-                            ],
-                          ),
-                        ],
-                      );
-                    },
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = isLoading
+                                    ? null
+                                    : () => onSignupTap(context),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -121,20 +122,20 @@ class LoginScreen extends ConsumerWidget {
   }
 
   Future<void> onSignInTap(WidgetRef ref) async {
-    final email = ref.read(loginEmailControllerProvider).text.trim();
-    final password = ref.read(loginPasswordControllerProvider).text.trim();
+    final loginRef = ref.watch(loginProvider);
+    final email = loginRef.emailController.text.trim();
+    final password = loginRef.passwordController.text.trim();
     final loginParams = LoginParams(password: password, email: email);
-
     ref.read(authProvider.notifier).login(loginParams: loginParams);
   }
 
   void listenAuthProvider(BuildContext context, WidgetRef ref) {
+    final loginNotifier = ref.read(loginProvider.notifier);
     ref.listen(authProvider, (previous, next) {
       if (next is AsyncData) {
         switch (next.value) {
           case AuthState.authentic:
-            ref.watch(loginEmailControllerProvider).clear();
-            ref.watch(loginPasswordControllerProvider).clear();
+            loginNotifier.reset();
             navigateToDashboard(context);
             break;
 

@@ -9,6 +9,7 @@ class InputField extends StatelessWidget {
     required this.obscureText,
     required this.prefixIcon,
     this.suffixIcon,
+    this.enabled = true,
   });
 
   final TextEditingController? controller;
@@ -17,6 +18,7 @@ class InputField extends StatelessWidget {
   final bool obscureText;
   final Icon prefixIcon;
   final IconButton? suffixIcon;
+  final bool enabled;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class InputField extends StatelessWidget {
       controller: controller,
       keyboardType: keyboardType,
       obscureText: obscureText,
+      enabled: enabled,
       decoration: InputDecoration(
         hintText: hintText,
         prefixIcon: prefixIcon,

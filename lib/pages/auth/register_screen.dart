@@ -14,6 +14,12 @@ class RegisterScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     listenAuthProvider(context, ref);
+
+    final registerState = ref.watch(registerProvider);
+    final authState = ref.watch(authProvider);
+    final registerNotifier = ref.read(registerProvider.notifier);
+    final isLoading = authState.isLoading;
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(24.0),
@@ -38,19 +44,13 @@ class RegisterScreen extends ConsumerWidget {
                     ),
                   ),
                   const SizedBox(height: 32),
-                  AuthFormWidget(
-                    emailController: ref.watch(registerEmailControllerProvider),
-                    isObscure: ref.watch(registerObscureTextProvider),
-                    onVisibilityIconClicked: () {
-                      ref
-                          .watch(registerObscureTextProvider.notifier)
-                          .update((state) => !state);
-                    },
-                    passwordController: ref.watch(
-                      registerPasswordControllerProvider,
-                    ),
+                  AuthForm(
+                    enabled: isLoading,
+                    emailController: registerState.emailController,
+                    passwordController: registerState.passwordController,
+                    isObscure: registerState.passwordObscureText,
+                    onVisibilityIconClicked: registerNotifier.toggle,
                   ),
-
                   const SizedBox(height: 16),
 
                   // const SizedBox(height: 24),
@@ -102,10 +102,10 @@ class RegisterScreen extends ConsumerWidget {
   }
 
   Future<void> register(WidgetRef ref) async {
-    final email = ref.watch(registerEmailControllerProvider).text.trim();
-    final password = ref.watch(registerPasswordControllerProvider).text.trim();
-    final registerParams = RegisterParams(email: email, password: password);
-
+    final registerRef = ref.watch(registerProvider);
+    final email = registerRef.emailController.text.trim();
+    final password = registerRef.passwordController.text.trim();
+    final registerParams = RegisterParams(password: password, email: email);
     ref.read(authProvider.notifier).register(registerParams: registerParams);
   }
 
@@ -115,12 +115,13 @@ class RegisterScreen extends ConsumerWidget {
   }
 
   void listenAuthProvider(BuildContext context, WidgetRef ref) {
+    final loginNotifier = ref.read(registerProvider.notifier);
+
     ref.listen(authProvider, (previous, next) {
       if (next is AsyncData) {
         switch (next.value) {
           case AuthState.registered:
-            ref.watch(registerEmailControllerProvider).clear();
-            ref.watch(registerPasswordControllerProvider).clear();
+            loginNotifier.reset();
             navigateToLoginScreen(context);
             break;
 

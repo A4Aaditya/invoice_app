@@ -20,7 +20,7 @@ class SettingScreen extends StatelessWidget {
         elevation: 2,
       ),
       body: ListView(
-        physics: const BouncingScrollPhysics(),
+        physics: const AlwaysScrollableScrollPhysics(),
         children: [
           _buildSettingTile(
             context,
@@ -61,7 +61,9 @@ class SettingScreen extends StatelessWidget {
                 bgColor: Colors.purple.shade100,
                 title: context.i18n.theme,
                 subtitle: context.i18n.lightAndDarkMode,
-                onTap: () {},
+                onTap: () {
+                  ref.read(themeProvider.notifier).changeTheme();
+                },
                 trailing: Switch(
                   value: Theme.of(context).brightness == Brightness.dark,
                   onChanged: (bool value) {

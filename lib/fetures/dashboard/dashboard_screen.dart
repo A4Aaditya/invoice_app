@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:invoice_app/fetures/dashboard/riverpod/bottom_nav_index_provider.dart';
 import 'package:invoice_app/fetures/dashboard/riverpod/dashboard_provider.dart';
-import 'package:invoice_app/widgets/bottom_nav.dart';
+import 'package:invoice_app/widgets/core/custom_bottom_nav_bar.dart';
 
 class DashboardScreen extends ConsumerStatefulWidget {
   const DashboardScreen({super.key});

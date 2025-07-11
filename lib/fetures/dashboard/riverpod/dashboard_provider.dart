@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:invoice_app/entities/screen_entities.dart';
+import 'package:invoice_app/fetures/dashboard/entities/screen_entities.dart';
 import 'package:invoice_app/fetures/home/home_screen.dart';
 import 'package:invoice_app/fetures/property/property_listing_screen.dart';
 import 'package:invoice_app/fetures/settings/setting_screen.dart';

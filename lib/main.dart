@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:invoice_app/app.dart';
-import 'package:invoice_app/utils/service_locator.dart';
+import 'package:invoice_app/core/di/service_locator.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {

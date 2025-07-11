@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:invoice_app/entities/auth_params/login_params.dart';
-import 'package:invoice_app/entities/auth_params/register_params.dart';
+import 'package:invoice_app/fetures/auth/auth_entities/login_params.dart';
+import 'package:invoice_app/fetures/auth/auth_entities/register_params.dart';
 import 'package:invoice_app/model/service_response.dart';
 import 'package:invoice_app/fetures/auth/service/auth_service.dart';
 import 'package:mocktail/mocktail.dart';

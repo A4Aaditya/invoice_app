@@ -22,7 +22,6 @@ final class SettingTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('setting tile ${title}');
     return ListTile(
       leading: CircleAvatar(
         backgroundColor: bgColor,

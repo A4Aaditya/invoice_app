@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:invoice_app/utils/extensions.dart';
-import 'package:invoice_app/widgets/input_field.dart';
+import 'package:invoice_app/widgets/core/custom_input_field.dart';
 
 class AuthForm extends StatelessWidget {
   const AuthForm({
@@ -22,7 +22,7 @@ class AuthForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        InputField(
+        CustomInputField(
           enabled: enabled,
           controller: emailController,
           hintText: context.i18n.emailText,
@@ -31,7 +31,7 @@ class AuthForm extends StatelessWidget {
           prefixIcon: const Icon(Icons.email_outlined),
         ),
         const SizedBox(height: 16),
-        InputField(
+        CustomInputField(
           enabled: enabled,
           controller: passwordController,
           hintText: context.i18n.passwordText,

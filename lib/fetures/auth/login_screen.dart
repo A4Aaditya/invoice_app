@@ -1,14 +1,14 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:invoice_app/entities/auth_params/login_params.dart';
+import 'package:invoice_app/fetures/auth/auth_entities/login_params.dart';
 import 'package:invoice_app/fetures/auth/riverpod/auth_provider.dart';
 import 'package:invoice_app/fetures/auth/widget/auth_form_widget.dart';
 import 'package:invoice_app/fetures/dashboard/dashboard_screen.dart';
 import 'package:invoice_app/fetures/auth/register_screen.dart';
 import 'package:invoice_app/fetures/auth/riverpod/login_screen_provider.dart';
 import 'package:invoice_app/utils/extensions.dart';
-import 'package:invoice_app/widgets/button.dart';
+import 'package:invoice_app/widgets/core/custom_button.dart';
 
 class LoginScreen extends ConsumerWidget {
   const LoginScreen({super.key});
@@ -67,7 +67,7 @@ class LoginScreen extends ConsumerWidget {
                     children: [
                       SizedBox(
                         width: double.infinity,
-                        child: Button(
+                        child: CustomButton(
                           isDisabled: isLoading,
                           onPressed: () => onSignInTap(ref),
                           child: Text(context.i18n.loginText),

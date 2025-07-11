@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:invoice_app/entities/auth_params/register_params.dart';
+import 'package:invoice_app/fetures/auth/auth_entities/register_params.dart';
 import 'package:invoice_app/fetures/auth/login_screen.dart';
 import 'package:invoice_app/fetures/auth/riverpod/auth_provider.dart';
 import 'package:invoice_app/fetures/auth/riverpod/register_screen_provider.dart';
 import 'package:invoice_app/fetures/auth/widget/auth_form_widget.dart';
 import 'package:invoice_app/utils/extensions.dart';
-import 'package:invoice_app/widgets/button.dart';
+import 'package:invoice_app/widgets/core/custom_button.dart';
 
 class RegisterScreen extends ConsumerWidget {
   const RegisterScreen({super.key});
@@ -65,7 +65,7 @@ class RegisterScreen extends ConsumerWidget {
                         children: [
                           SizedBox(
                             width: double.infinity,
-                            child: Button(
+                            child: CustomButton(
                               onPressed: () => register(ref),
                               child: Text(context.i18n.register),
                             ),

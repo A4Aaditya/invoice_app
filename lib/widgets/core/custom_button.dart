@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 enum ButtonType { filled, outlined, text }
 
-class Button extends StatelessWidget {
-  const Button({
+class CustomButton extends StatelessWidget {
+  const CustomButton({
     super.key,
     required this.child,
     this.onPressed,

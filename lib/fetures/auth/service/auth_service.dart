@@ -1,6 +1,6 @@
-import 'package:invoice_app/entities/auth_params/login_params.dart';
-import 'package:invoice_app/entities/auth_params/no_params.dart';
-import 'package:invoice_app/entities/auth_params/register_params.dart';
+import 'package:invoice_app/fetures/auth/auth_entities/login_params.dart';
+import 'package:invoice_app/core/params/no_params.dart';
+import 'package:invoice_app/fetures/auth/auth_entities/register_params.dart';
 import 'package:invoice_app/model/service_response.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 

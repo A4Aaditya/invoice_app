@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
 import 'package:invoice_app/entities/auth_params/no_params.dart';
 import 'package:invoice_app/pages/auth/login_screen.dart';
+import 'package:invoice_app/pages/auth/widget/setting_tile.dart';
 import 'package:invoice_app/riverpod/language_provider.dart';
 import 'package:invoice_app/riverpod/theme_provider.dart';
 import 'package:invoice_app/service/auth_service.dart';
@@ -22,8 +23,7 @@ class SettingScreen extends StatelessWidget {
       body: ListView(
         physics: const AlwaysScrollableScrollPhysics(),
         children: [
-          _buildSettingTile(
-            context,
+          SettingTile(
             icon: Icons.person,
             iconColor: Colors.blue,
             bgColor: Colors.blue.shade100,
@@ -31,9 +31,8 @@ class SettingScreen extends StatelessWidget {
             subtitle: context.i18n.settingAccountTileDescription,
             onTap: () {},
           ),
-          _buildDivider(),
-          _buildSettingTile(
-            context,
+          const Divider(indent: 72, endIndent: 16, thickness: 0.8, height: 0),
+          SettingTile(
             icon: Icons.notifications,
             iconColor: Colors.orange,
             bgColor: Colors.orange.shade100,
@@ -41,9 +40,8 @@ class SettingScreen extends StatelessWidget {
             subtitle: context.i18n.notificationPreferences,
             onTap: () {},
           ),
-          _buildDivider(),
-          _buildSettingTile(
-            context,
+          const Divider(indent: 72, endIndent: 16, thickness: 0.8, height: 0),
+          SettingTile(
             icon: Icons.lock,
             iconColor: Colors.green,
             bgColor: Colors.green.shade100,
@@ -51,11 +49,10 @@ class SettingScreen extends StatelessWidget {
             subtitle: context.i18n.privacySettings,
             onTap: () {},
           ),
-          _buildDivider(),
+          const Divider(indent: 72, endIndent: 16, thickness: 0.8, height: 0),
           Consumer(
             builder: (context, ref, child) {
-              return _buildSettingTile(
-                context,
+              return SettingTile(
                 icon: Icons.palette,
                 iconColor: Colors.purple,
                 bgColor: Colors.purple.shade100,
@@ -74,11 +71,10 @@ class SettingScreen extends StatelessWidget {
               );
             },
           ),
-          _buildDivider(),
+          const Divider(indent: 72, endIndent: 16, thickness: 0.8, height: 0),
           Consumer(
             builder: (context, ref, child) {
-              return _buildSettingTile(
-                context,
+              return SettingTile(
                 icon: Icons.language,
                 iconColor: Colors.indigo,
                 bgColor: Colors.indigo.shade100,
@@ -116,7 +112,6 @@ class SettingScreen extends StatelessWidget {
                                 ref
                                     .read(languageProvider.notifier)
                                     .setLanguage("en");
-                                // Add logic to change language to English
                                 Navigator.pop(context);
                               },
                             ),
@@ -127,7 +122,6 @@ class SettingScreen extends StatelessWidget {
                                 ref
                                     .read(languageProvider.notifier)
                                     .setLanguage("hi");
-                                // Add logic to change language to Hindi
                                 Navigator.pop(context);
                               },
                             ),
@@ -140,10 +134,8 @@ class SettingScreen extends StatelessWidget {
               );
             },
           ),
-          _buildDivider(),
-
-          _buildSettingTile(
-            context,
+          const Divider(indent: 72, endIndent: 16, thickness: 0.8, height: 0),
+          SettingTile(
             icon: Icons.info,
             iconColor: Colors.teal,
             bgColor: Colors.teal.shade100,
@@ -151,9 +143,8 @@ class SettingScreen extends StatelessWidget {
             subtitle: context.i18n.settingAboutTileDescription,
             onTap: () {},
           ),
-          _buildDivider(),
-          _buildSettingTile(
-            context,
+          const Divider(indent: 72, endIndent: 16, thickness: 0.8, height: 0),
+          SettingTile(
             icon: Icons.logout,
             iconColor: Colors.red,
             bgColor: Colors.red.shade100,
@@ -257,40 +248,5 @@ class SettingScreen extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  Widget _buildSettingTile(
-    BuildContext context, {
-    required IconData icon,
-    required Color iconColor,
-    required Color bgColor,
-    required String title,
-    required String subtitle,
-    required VoidCallback onTap,
-    Widget? trailing,
-  }) {
-    return ListTile(
-      leading: CircleAvatar(
-        backgroundColor: bgColor,
-        child: Icon(icon, color: iconColor),
-      ),
-      title: Text(
-        title,
-        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-      ),
-      subtitle: Text(
-        subtitle,
-        style: TextStyle(color: Theme.of(context).hintColor),
-      ),
-      trailing: trailing ?? const Icon(Icons.arrow_forward_ios, size: 16),
-      onTap: onTap,
-      contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      hoverColor: Theme.of(context).colorScheme.primary.withValues(),
-    );
-  }
-
-  Widget _buildDivider() {
-    return const Divider(indent: 72, endIndent: 16, thickness: 0.8, height: 0);
   }
 }

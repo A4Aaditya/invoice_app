@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
 import 'package:invoice_app/entities/auth_params/no_params.dart';
-import 'package:invoice_app/pages/auth/login_screen.dart';
-import 'package:invoice_app/pages/auth/widget/setting_tile.dart';
-import 'package:invoice_app/riverpod/language_provider.dart';
-import 'package:invoice_app/riverpod/theme_provider.dart';
-import 'package:invoice_app/service/auth_service.dart';
+import 'package:invoice_app/fetures/auth/login_screen.dart';
+import 'package:invoice_app/fetures/auth/widget/setting_tile.dart';
+import 'package:invoice_app/fetures/settings/riverpod/language_provider.dart';
+import 'package:invoice_app/fetures/settings/riverpod/theme_provider.dart';
+import 'package:invoice_app/fetures/auth/service/auth_service.dart';
 import 'package:invoice_app/utils/extensions.dart';
 
 class SettingScreen extends StatelessWidget {

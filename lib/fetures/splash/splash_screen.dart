@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:invoice_app/pages/auth/login_screen.dart';
+import 'package:invoice_app/fetures/auth/login_screen.dart';
 import 'package:invoice_app/utils/extensions.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 

@@ -6,8 +6,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:invoice_app/app.dart';
-import 'package:invoice_app/pages/dashboard_screen.dart';
-import 'package:invoice_app/pages/splash_screen.dart';
+import 'package:invoice_app/fetures/dashboard/dashboard_screen.dart';
+import 'package:invoice_app/fetures/splash/splash_screen.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 

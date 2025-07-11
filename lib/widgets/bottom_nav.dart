@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:invoice_app/riverpod/bottom_nav_index_provider.dart';
+import 'package:invoice_app/fetures/dashboard/riverpod/bottom_nav_index_provider.dart';
 
 class CustomottomNavigationBar extends ConsumerWidget {
   final void Function(int index) onTabChange;

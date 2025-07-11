@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
 import 'package:invoice_app/i18n/app_localizations.dart';
-import 'package:invoice_app/pages/dashboard_screen.dart';
-import 'package:invoice_app/pages/splash_screen.dart';
-import 'package:invoice_app/riverpod/language_provider.dart';
-import 'package:invoice_app/riverpod/theme_provider.dart';
+import 'package:invoice_app/fetures/dashboard/dashboard_screen.dart';
+import 'package:invoice_app/fetures/splash/splash_screen.dart';
+import 'package:invoice_app/fetures/settings/riverpod/language_provider.dart';
+import 'package:invoice_app/fetures/settings/riverpod/theme_provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class MyApp extends ConsumerWidget {
